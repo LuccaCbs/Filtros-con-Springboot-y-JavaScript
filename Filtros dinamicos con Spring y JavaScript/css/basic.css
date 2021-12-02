@@ -1,0 +1,139 @@
+/*//////////////////////////////////////////////////////*/
+/*////////////////////////Labels////////////////////////*/
+/*//////////////////////////////////////////////////////*/
+
+.hidenProduct{
+    display: none;
+}
+
+#productViewer p{
+    color: white;
+}
+
+/* div{
+    border: 1px solid black;
+} */
+/*///////////////////////////////////////////////////////*/
+/*////////////////////////Flexbox////////////////////////*/
+/*///////////////////////////////////////////////////////*/
+
+.flex-Container{
+    display: flex;
+    min-height: 700px;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+/*///////////////////////////////////////////////////*/
+/*/////////////////Responsive-Nav////////////////////*/
+/*///////////////////////////////////////////////////*/
+
+.nav-bar{ 
+    align-items: baseline;
+    background: linear-gradient(35deg,rgba(33, 230, 230, 0.76),rgba(18, 19, 19, 0.76));
+    padding: 20px;
+    display: block;
+    color: white;
+    cursor: pointer;
+    font-size: 1.5em;
+    width: 100%;
+}
+
+.menu, .submenu{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu{
+    background: #555;
+    width: 100%;
+    margin-left: -100%;
+    transition: all 0.5s;
+}
+
+.menu__link {
+    display: block;
+    padding: 20px;
+    color: white;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+
+.menu__link .btn{
+    color: rgba(255, 255, 255, 0.89);
+}
+
+.menu__link:hover{
+    color: rgba(255, 255, 255, 0.89);
+    background: #444;
+}
+
+.submenu{
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.submenu .menu__link{
+    background: #333;
+    padding-left: 40px;
+}
+
+.submenu .menu__link:hover{
+    background: #222;
+}
+
+.show{
+    margin-left: 0;
+}
+
+@media(min-width:1024px){
+    .nav-bar{
+        display: none;
+    }
+    .menu{
+        margin-left: 0;
+        display: flex;
+    }
+    .container-submenu{
+        position: relative;
+    }
+    .submenu{
+        position: absolute;
+        top: 60px;
+        width: 250px;
+        overflow: visible;
+        z-index: 1000;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .container-submenu:hover .submenu{
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+
+/*//////////////////////////////*/
+/*ProductFilter*/
+
+.products-list .product-item{
+	/* width: 22%;
+	margin-left: 3%;
+	margin-bottom: 25px;
+	box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.22); */
+
+	display: flex;
+	flex-direction: column;
+	/* align-items: center;
+	align-self: flex-start; */
+
+	transition: all .4s;
+}
+
+.category_list .ct_item-active{
+	background: #2D3E50;
+}
