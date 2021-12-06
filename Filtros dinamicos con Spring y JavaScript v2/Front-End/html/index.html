@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Shop Homepage - Start Bootstrap Template</title>
+    <span th:insert="fragments.html :: cssLinks"></span>
+
+</head>
+
+<body>
+
+    <span th:replace="fragments.html :: navBar"></span>
+
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Shop in style</h1>
+                <p class="lead fw-normal text-white-50 mb-0">With this shop hompeage template</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-5 bg-dark body-section">
+        <div class="container px-4 px-lg-5 mt-5">
+            <div class="row">
+                <div class="category_list col-lg-3 d-none d-sm-none d-md-none d-lg-block text-white">
+                    <h3>Filters</h3>
+                    <hr>
+                    <div class="categories">
+                        <h4>Categories</h4>
+                        <ul class="list-group list-group-flush">
+                            <button id="category-button" class="category_item btn" category="productType" value="food">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Food
+
+                                    <span class="badge bg-info rounded-pill" th:text="${foods}"></span>
+                                </li>
+                            </button>
+                            <button id="category-button" class="category_item btn" category="productType" value="accessory">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Accessories
+
+                                    <span class="badge bg-info rounded-pill" th:text="${accessories}"></span>
+                                </li>
+                            </button>
+                        </ul>
+                    </div>
+                    <div class="form-check">
+                        <input class="category_item form-check-input" type="checkbox" category="all" value="all"
+                            id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Todo
+                        </label>
+                    </div>
+                    <div class="mt-3">
+                        <h4>Brand</h4>
+                        <div th:each="brand : ${brands}">
+                            <input class="category_item form-check-input" category="brand" th:attr="value=|${brand}|"
+                                name="brand" type="checkbox" th:value="${brand}" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <span th:text="${brand}"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <h4>Pet Type</h4>
+                        <div th:each="petType : ${petTypes}">
+                            <input class="category_item form-check-input" category="petType"
+                                th:attr="value=|${petType}|" type="checkbox" th:value="${petType}"
+                                id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <span th:text="${petType}"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h4>Pet Size</h4>
+                        <div th:each="petSize : ${petSizes}">
+                            <input class="category_item form-check-input" category="petSize"
+                                th:attr="value=|${petSize}|" type="checkbox" th:value="${petSize}"
+                                id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <span th:text="${petSize}"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h4>Pet Age</h4>
+                        <div th:each="petAge : ${petAges}">
+                            <input class="category_item form-check-input" category="petAge" th:attr="value=|${petAge}|"
+                                type="checkbox" th:value="${petAge}" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                <span th:text="${petAge}"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h4>Price Range</h4>
+                        <input class="category_item" id="price" category="price" type="range" min="0"
+                            th:attr="max=|${maxPrice}|" step="1" list="steplist">
+                        <h4>Range Value</h4>
+                        <input type="text" id="priceValue" th:attr="value=|${maxPrice}|">
+                        <!-- <datalist id="steplist">
+                            <option th:value="0">
+                            <option th:value="${maxPrice / 2}">
+                            <option th:value="${maxPrice}" label="100">
+                        </datalist> -->
+                    </div>
+                </div>
+
+                <span th:replace="fragments :: products">Products</sp>
+
+            </div>
+        </div>
+    </section>
+
+
+    <th:block th:replace="fragments :: modalProduct">modal</th:block>
+
+    <!-- Footer-->
+    <footer class="py-5 bg-dark footer">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+        </div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+
+
+</body>
+<script th:inline="javascript">
+    var products = /*[[${products}]]*/ "products";
+</script>
+<script src="/js/jquery-3.6.0.js" th:inline="javascript"></script>
+<script src="/js/index.js" th:inline="javascript">
+</script>
+
+</html>

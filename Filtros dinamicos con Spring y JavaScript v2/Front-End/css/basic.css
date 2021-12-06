@@ -1,0 +1,346 @@
+/*///////////////////////////////////////////////////////*/
+/*////////////////////////Classes////////////////////////*/
+/*///////////////////////////////////////////////////////*/
+
+.footer{
+    background: linear-gradient(30deg, rgb(0, 0, 0), rgb(0, 0, 0)) ;
+    border: 2px solid black;
+}
+
+.list-group-item{
+    color: tomato;
+}
+
+.categories, .categories button, .categories li{
+  background: transparent;
+}
+
+
+.category_list{
+    background: linear-gradient(to bottom ,rgb(32, 32, 32), rgba(58, 122, 134, 0.699)) ;
+}
+
+.card-container{
+
+    height: 100%;
+    min-height: 460px;    
+    background: linear-gradient(30deg, rgb(69, 77, 87), rgb(195, 219, 224)) ;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    
+    border-radius: 10px;
+
+    overflow: hidden;
+
+}
+
+.product-container{
+    overflow: hidden;
+    margin: 5px;
+    padding: 5px;
+    background-color: inherit;
+}
+
+.image-container{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit:none;
+    height: 45%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.image-container img{
+    object-fit:cover;
+}
+
+.description-container{
+
+    color: rgb(229, 226, 226);
+}
+
+.resume-container{
+    color: rgba(255, 255, 255, 0.877);
+    /* background: linear-gradient(35deg,  rgb(10, 45, 90), rgb(29, 107, 209)); */
+    height: 30%;
+    
+    border: 1px solid gold;
+}
+
+.button-container{
+    display: flex;
+    position: absolute;
+    bottom: 8px;
+    align-items: stretch;
+    justify-content: space-evenly;
+    height: 18%;
+    margin: 1px;
+}
+
+.button{
+    color: rgba(255, 255, 255, 0.822);
+    font-weight: bold;
+    border-radius: 10px;
+    margin: 1px;
+    width: 100%;
+}
+
+.button:hover{
+    color: white;
+    background-color:rgba(20, 185, 158, 0.829); ;
+}
+
+#category-button{
+  margin: 4px;
+  padding: 0;
+}
+
+/*///////////////////////////////////////////////////*/
+/*/////////////////Responsive-Nav////////////////////*/
+/*///////////////////////////////////////////////////*/
+
+.nav-bar {
+  align-items: baseline;
+  background: linear-gradient(
+    35deg,
+    rgba(33, 230, 230, 0.76),
+    rgba(18, 19, 19, 0.76)
+  );
+  padding: 20px;
+  display: block;
+  color: white;
+  cursor: pointer;
+  font-size: 1.5em;
+  width: 100%;
+}
+
+.menu,
+.submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu {
+  background: #555;
+  width: 100%;
+  margin-left: -100%;
+  transition: all 0.5s;
+}
+
+.menu__link {
+  display: block;
+  padding: 20px;
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+}
+
+.menu__link .btn {
+  color: rgba(255, 255, 255, 0.89);
+}
+
+.menu__link:hover {
+  color: rgba(255, 255, 255, 0.89);
+  background: #444;
+}
+
+.submenu {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.submenu .menu__link {
+  background: #333;
+  padding-left: 40px;
+}
+
+.submenu .menu__link:hover {
+  background: #222;
+}
+
+.show {
+  margin-left: 0;
+}
+
+@media (min-width: 1024px) {
+  .nav-bar {
+    display: none;
+  }
+  .menu {
+    margin-left: 0;
+    display: flex;
+  }
+  .container-submenu {
+    position: relative;
+  }
+  .submenu {
+    position: absolute;
+    top: 60px;
+    width: 250px;
+    overflow: visible;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .container-submenu:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/*/////////////////////////////////////////////////////////////*/
+/*////////////////////////ProductFilter////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+
+.products-list .product-item {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s;
+}
+
+.category_list .ct_item-active {
+  background: #2d3e50;
+}
+
+/*/////////////////////////////////////////////////////*/
+/*////////////////////////Modal////////////////////////*/
+/*/////////////////////////////////////////////////////*/
+
+/*Contribución de Gonzalo Balderrama --> https://github.com/justAVar*/
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 30%;
+  z-index: 1055;
+  display: none;
+  width: 60%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+}
+
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 0.5rem;
+  pointer-events: none;
+}
+
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out;
+  transform: translate(0, -50px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal.fade .modal-dialog {
+    transition: none;
+  }
+}
+
+.modal.show .modal-dialog {
+  transform: none;
+}
+
+.modal.modal-static .modal-dialog {
+  transform: scale(1.02);
+}
+
+.modal-dialog-scrollable {
+  height: calc(100% - 1rem);
+}
+
+.modal-dialog-scrollable .modal-content {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.modal-dialog-scrollable .modal-body {
+  overflow-y: auto;
+}
+
+.modal-dialog-centered {
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - 1rem);
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: rgb(32, 39, 37);
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+}
+
+.modal-backdrop.fade {
+  opacity: 0;
+}
+
+.modal-backdrop.show {
+  opacity: 0.5;
+}
+
+.modal-header {
+  background: linear-gradient(to bottom, rgba(8, 90, 86, 0.863), rgba(63, 226, 231, 0.7));
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1rem;
+  border-top-left-radius: calc(0.3rem - 1px);
+  border-top-right-radius: calc(0.3rem - 1px);
+}
+
+.modal-header .btn-close {
+  padding: 0.5rem 0.5rem;
+  margin: -0.5rem -0.5rem -0.5rem auto;
+}
+
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  color: rgb(240, 239, 239);
+  font-weight: bold;
+}
+
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 0;
+  
+}
+
+.modal-card{
+    background: linear-gradient(to bottom, rgba(106, 250, 243, 0.863) 0%, rgba(28, 206, 197, 0.7) 50%, #206da1 100%);
+}
+
+.modal-footer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.75rem;
+  border-bottom-right-radius: calc(0.3rem - 2px);
+  border-bottom-left-radius: calc(0.3rem - 2px);
+}

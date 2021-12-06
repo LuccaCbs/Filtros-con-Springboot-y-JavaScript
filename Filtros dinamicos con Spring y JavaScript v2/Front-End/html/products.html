@@ -1,0 +1,49 @@
+    <div th:each="product : ${products}" class="product-item  col mb-5">
+        <div class="card-container">
+            <div class="card product-container h-100">
+
+                <div class="image-container">
+                    <span th:switch="${product.productType}">
+                        <span th:case="accessory">
+                            <img class="card-img-top"
+                                th:src="@{'/resources/products/accessory/'+${product.Image}}">
+                        </span>
+
+                        <span th:case="food">
+                            <img class="card-img-top"
+                                th:src="@{'/resources/products/food/'+${product.Image}}">
+                        </span>
+                    </span>
+                </div>
+
+
+                <!-- <div class=" p-4"> -->
+                <div class="text-center resume-container">
+
+                    <p th:text="${product.name}" class="fw-bolder"></p>
+
+                    <p th:text="'$'+${product.price}"></p>
+
+                    <div>
+                        <span th:replace="fragments :: productQuality">Product Quality</sp>
+                    </div>
+                </div>
+
+                <!-- </div> -->
+                <!-- <div class="star-container"></div> -->
+
+                <div class="pt-0 border-top-0 bg-transparent button-container">
+                    <div class="text-center">
+                        <a class="btn button" href="#">ADD TO
+                            CART</a>
+
+                        <button id="idButton" type="submit" name="productId"
+                            th:attr="productId=|${product.id}|" class="btn button idButton"
+                            data-bs-toggle="modal" data-bs-target="#modalProduct">SHOW PRODUCT
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
